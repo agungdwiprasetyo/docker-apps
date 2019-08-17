@@ -1,0 +1,11 @@
+version: "3"
+services:
+  postgres:
+    image: 'postgres:9.6.10-alpine'
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123456
+      POSTGRES_DB : test
+    ports:
+        - "5432:5432"
+    restart: on-failure
