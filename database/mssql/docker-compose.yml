@@ -5,9 +5,10 @@ services:
     image: microsoft/mssql-server-linux
     volumes:
       - mssql-volume:/var/opt/mssql
+    restart: on-failure
     environment:
       - ACCEPT_EULA=Y
-      - SA_PASSWORD=Test@123
+      - SA_PASSWORD=pass
     ports:
       - "1433:1433"
 
