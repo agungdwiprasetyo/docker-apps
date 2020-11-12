@@ -1,0 +1,23 @@
+version: '2.3'
+services:
+    #activemq 
+  activemq:
+    # 
+    image: webcenter/activemq
+    restart: always
+    #  mapping port
+    ports:
+      - 61613:61613
+      - 61616:61616
+      - 8161:8161
+    #definition mount point
+    volumes:
+      - ./data/data/activemq:/data/activemq
+      - ./data/var/log/activemq:/var/log/activemq
+    # 
+    environment:
+      - ACTIVEMQ_ADMIN_LOGIN=admin
+      - ACTIVEMQ_ADMIN_PASSWORD=admin
+      - ACTIVEMQ_CONFIG_MINMEMORY=512
+      - ACTIVEMQ_CONFIG_MAXMEMORY=2048
+      - TZ=Asia/Jakarta
