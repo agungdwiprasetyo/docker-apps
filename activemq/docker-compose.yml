@@ -10,6 +10,8 @@ services:
       - 61613:61613
       - 61616:61616
       - 8161:8161
+      - 5672:5672 # amqp
+      - 1883:1883 # mqtt
     #definition mount point
     volumes:
       - ./data/data/activemq:/data/activemq
