@@ -1,12 +1,17 @@
-version: '3'
+version: '3.7'
 services:
   mongodb:
-    image: mongo:3.5
+    image: mongo
     environment:
+      - MONGO_DATA_DIR=/data/db
+      - MONGO_LOG_DIR=/dev/null
+      - MONGO_INITDB_DATABASE=test
       - MONGO_INITDB_ROOT_USERNAME=user
       - MONGO_INITDB_ROOT_PASSWORD=pass
     restart: on-failure
     ports:
       - 27017:27017
     volumes:
-      - ./mongodb:/data/db
+      - ./scripts/users.js:/docker-entrypoint-initdb.d/users.js:ro
+      - ./data:/data/db
+    command: mongod --auth
