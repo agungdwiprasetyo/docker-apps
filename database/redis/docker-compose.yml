@@ -2,7 +2,7 @@ version: "3"
 services:
   redis:
     image: 'redis:4-alpine'
-    command: redis-server --requirepass mantul
+    command: redis-server --requirepass pass
     ports:
       - '6379:6379'
     restart: on-failure
