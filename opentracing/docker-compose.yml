@@ -3,6 +3,7 @@ version: "3"
 services:
   jaeger:
     image: jaegertracing/all-in-one:1.21
+    restart: on-failure
     ports:
       - "5775:5775/udp"
       - "6831:6831/udp"
